@@ -1,0 +1,78 @@
+{
+  "_from": "publicodes",
+  "_id": "publicodes@1.0.0-beta.11",
+  "_inBundle": false,
+  "_integrity": "sha512-Fq+WHu39Ed71CmsouIABN01eXD39sLQ61v8SGjmHhjQVodIh4yGhUXlL3HLkL5RqidEA1Otk8iiqUAAwAk5UEw==",
+  "_location": "/publicodes",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "publicodes",
+    "name": "publicodes",
+    "escapedName": "publicodes",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/publicodes/-/publicodes-1.0.0-beta.11.tgz",
+  "_shasum": "5e6a5c1f1bd8d05f0ed76d3032d84e4ea1c6c633",
+  "_spec": "publicodes",
+  "_where": "F:\\Web\\testPublicode",
+  "bugs": {
+    "url": "https://github.com/betagouv/mon-entreprise/issues?q=is%3Aopen+is%3Aissue+label%3A\"%3Agear%3A+moteur\""
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "moo": "^0.5.1",
+    "nearley": "^2.19.2",
+    "yaml": "^1.9.2"
+  },
+  "deprecated": false,
+  "description": "A declarative language for encoding public algorithm",
+  "devDependencies": {
+    "@dagrejs/graphlib": "^2.1.4",
+    "chai": "^4.2.0",
+    "dedent-js": "1.0.1",
+    "intl": "^1.2.5",
+    "typescript": "3.4.3"
+  },
+  "engines": {
+    "node": ">=12.16.1"
+  },
+  "exports": {
+    "require": "./dist/index.js",
+    "import": "./esm/index.js"
+  },
+  "files": [
+    "dist/index.js",
+    "dist/types",
+    "dist/images",
+    "dist/publicodes.min.js",
+    "esm"
+  ],
+  "homepage": "https://publi.codes/",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "name": "publicodes",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betagouv/mon-entreprise.git",
+    "directory": "publicodes"
+  },
+  "scripts": {
+    "build": "yarn run webpack --config webpack.config.js && yarn run tsc",
+    "clean": "rimraf dist node_modules",
+    "prepare": "yarn run rimraf dist && yarn run build",
+    "prepublishOnly": "yarn test && NODE_ENV=production yarn run build",
+    "test": "yarn test:file \"./{,!(node_modules)/**/}!(webpack).test.js\"",
+    "test:file": "yarn mocha-webpack --include test/setupIntl.js --webpack-config ./webpack.test.js "
+  },
+  "types": "dist/types/index.d.ts",
+  "version": "1.0.0-beta.11"
+}
